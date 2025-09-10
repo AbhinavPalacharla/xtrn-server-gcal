@@ -1,0 +1,81 @@
+{
+  "name": "google-calendar-xtrn-server",
+  "version": "1.0.0",
+  "oauth_provider": "google-calendar",
+  "config": [],
+  "tools": [
+    {
+      "name": "create-event",
+      "description": "Creates a new event",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string"
+          },
+          "start": {
+            "type": "object",
+            "properties": {
+              "dateTime": {
+                "type": "string"
+              },
+              "timeZone": {
+                "type": "string"
+              }
+            },
+            "required": ["dateTime", "timeZone"],
+            "additionalProperties": false
+          },
+          "end": {
+            "type": "object",
+            "properties": {
+              "dateTime": {
+                "type": "string"
+              },
+              "timeZone": {
+                "type": "string"
+              }
+            },
+            "required": ["dateTime", "timeZone"],
+            "additionalProperties": false
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "reminders": {
+            "type": "object",
+            "properties": {
+              "useDefault": {
+                "type": "boolean"
+              },
+              "overrides": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "method": {
+                      "type": "string",
+                      "enum": ["email", "popup"]
+                    },
+                    "minutes": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["method", "minutes"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": ["summary", "start", "end"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
