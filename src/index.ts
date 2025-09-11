@@ -14,9 +14,7 @@ const server = new XTRNServer(
 	"google-calendar-xtrn-server",
 	"1.0.0",
 	defineConfig({
-		oauth: {
-			provider: "google-calendar",
-		},
+		oauth: true,
 	}),
 );
 
